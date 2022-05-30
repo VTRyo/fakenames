@@ -14,6 +14,11 @@ func Parse(url string) string {
 	defer res.Body.Close()
 
 	body, _ := io.ReadAll(res.Body)
-	jsonStr := string(body)[strings.Index(string(body), "(")+1 : strings.Index(string(body), ")")]
+	jsonpStr := string(body)
+	startIndex := strings.Index(jsonpStr, "(") + 1
+	endIndex := strings.Index(jsonpStr, ")")
+
+	jsonStr := jsonpStr[startIndex:endIndex]
+
 	return jsonStr
 }
