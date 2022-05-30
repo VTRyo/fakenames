@@ -9,7 +9,7 @@ import (
 
 type NameApi struct {
 	Err  int        `json:"err"`
-	Name [][]string `json:name`
+	Name [][]string `json:"name"`
 }
 
 func main() {
