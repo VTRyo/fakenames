@@ -20,8 +20,7 @@ func main() {
 	var name NameApi
 	json.Unmarshal([]byte(jsonStr), &name)
 
-	// 生成数が3以外だとpanicになる模様…
-	for i := 0; i < len(name.Name[0]); i++ {
+	for i := 0; i < len(name.Name); i++ {
 		fmt.Printf("名前: %s(%s),\n", name.Name[i][0], name.Name[i][1])
 	}
 
