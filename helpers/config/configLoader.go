@@ -8,14 +8,15 @@ import (
 )
 
 type Content struct {
-	Generators Generator `yaml:"generators"`
+	Generators    Generator `yaml:"generators"`
+	Personalities []string  `yaml:"personalities"`
 }
 
 type Generator struct {
 	Count string `yaml:"count"`
 }
 
-func FromFile(filePath string) string {
+func FromFile(filePath string) *Content {
 	f, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		fmt.Println(err)
@@ -25,6 +26,5 @@ func FromFile(filePath string) string {
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	return content.Generators.Count
+	return content
 }

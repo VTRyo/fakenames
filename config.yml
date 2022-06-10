@@ -1,2 +1,6 @@
 generators:
   count: 3
+personalities: 
+  - "かわいい"
+  - "かっこいい"
+  - "ツンデレ"
