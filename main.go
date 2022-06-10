@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"math/rand"
+	"time"
 
 	"github.com/VTRyo/fakenames/helpers/config"
 	"github.com/VTRyo/fakenames/helpers/jsonp"
@@ -22,8 +24,12 @@ func main() {
 	var name NameApi
 	json.Unmarshal([]byte(jsonStr), &name)
 
+	// personalitiesのリストをランダムに出力したい
+	rand.Seed(time.Now().UnixNano())
+	personalitiesLen := len(personalities)
+
 	for i := 0; i < len(name.Name); i++ {
-		fmt.Printf("名前: %s(%s), 性格: %s,\n", name.Name[i][0], name.Name[i][1], personalities[i])
+		fmt.Printf("名前: %s(%s), 性格: %s,\n", name.Name[i][0], name.Name[i][1], personalities[rand.Intn(personalitiesLen)])
 	}
 
 }
