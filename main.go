@@ -22,7 +22,6 @@ func main() {
 	var name NameApi
 	json.Unmarshal([]byte(jsonStr), &name)
 
-	fmt.Println(config)
 	for i := 0; i < len(name.Name); i++ {
 		fmt.Printf("名前: %s(%s), 性格: %s,\n", name.Name[i][0], name.Name[i][1], personalities[i])
 	}
